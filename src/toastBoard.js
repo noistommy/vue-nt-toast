@@ -52,7 +52,7 @@ class ToastBoard {
   setClose() {
     const closeButton = document.createElement('button')
     closeButton.classList.add('toast-close')
-    closeButton.innerHTML = '<i class="fa fa-xmark" />'
+    closeButton.innerHTML = '<span>&times;</span>'
     return closeButton
   }
   hideToast(toast, interval) {

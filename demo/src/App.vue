@@ -15,7 +15,7 @@ const toastOption = {
   position: 'top-right',
   displayOnTop: true,
   snackbar: false,
-  freeze: false,
+  freeze: true,
   timeout: 5000
 }
 

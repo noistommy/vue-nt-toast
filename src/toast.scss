@@ -150,6 +150,8 @@ $stateColors: (
         font-size: .8em;
         overflow-wrap: break-word;
         h5 {
+          font-weight: bold;
+          font-size: 1.2em;
           margin-bottom: 10px;
         }
       }
@@ -162,6 +164,8 @@ $stateColors: (
         top: 50%;
         right: 0;
         transform: translateY(-50%);
+        color: #ffffff;
+        font-size: 1em;
       }
       .toast-icon {
         flex-shrink: 1;

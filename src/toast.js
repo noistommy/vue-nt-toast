@@ -58,12 +58,14 @@ class Toast {
     this.icon.classList.add('toast-icon')
     const iconClass = statusIcon[this.type] || 'hexagon-exclamation'
     this.icon.innerHTML = `<i class="fa fa-${iconClass}" />`
+    // this.icon.innerHTML = `<img src="./icons/${iconClass}.svg" />`
+    this.toast.appendChild(this.icon)
     this.toast.appendChild(this.icon)
   }
   setContents() {
     const contents = document.createElement('div')
     const title = document.createElement('h5')
-    title.classList.add('ellipsis')
+    title.classList.add('title', 'ellipsis')
     const description = document.createElement('div')
     if (typeof this.msg === 'string') {
       description.innerHTML = this.msg
