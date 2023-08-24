@@ -30,7 +30,7 @@ const libConfig = {
         },
         // Use `index.css` for css
         assetFileNames: assetInfo => {
-          if (assetInfo.name == "style.css") return "index.css"
+          if (assetInfo.name == "style.css") return "toast.css"
           return assetInfo.name
         }
       }

@@ -3,8 +3,8 @@ import HelloWorld from './components/HelloWorld.vue'
 import TheWelcome from './components/TheWelcome.vue'
 import { getCurrentInstance } from 'vue'
 
-const app = getCurrentInstance()
-const toast = app.appContext.config.globalProperties.$gaToast
+const { proxy } = getCurrentInstance()
+const toast = proxy.$gaToast
 
 const toastOption = {
   round: false,
@@ -20,7 +20,6 @@ const toastOption = {
 }
 
 const showToast = type => {
-  console.log(type)
   toast.show(type, {title: "Test Title", description: 'This is test Toast'}, toastOption)
 }
 
@@ -28,7 +27,8 @@ const showToast = type => {
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" @click="showToast('info')" />
+    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" 
+    @click="showToast('info')" />
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
     </div>
