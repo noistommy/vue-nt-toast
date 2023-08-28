@@ -1,7 +1,9 @@
 {
   "name": "vue-nt-toast",
-  "version": "0.0.0",
-  "private": true,
+  "version": "0.1.0",
+  "description": "Toast system plugin with vue3",
+  "author": "Minyoung Tommy Kim",
+  "private": false,
   "scripts": {
     "dev": "MODE=demo vite",
     "build": "npm run build:code",
@@ -11,7 +13,30 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
     "format": "prettier --write src/"
   },
-  "dependencies": {
+  "main": "./dist/nt-toast.umd.js",
+  "module": "./dist/nt-toast.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/nt-toast.es.js",
+      "require": "./dist/nt-toast.umd.js"
+    }
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "bugs": {
+    "url": "https://github.com/noistommy/vue-nt-toast/issues"
+  },
+  "homepage": "https://github.com/noistommy/vue-nt-toast#readme",
+  "keywords": [
+    "vue",
+    "notification",
+    "toast"
+  ],
+  "style": "./dist/toast.css",
+  "peerDependencies": {
+    "@fortawesome/fontawesome-free": "^6.4.2",
     "vue": "^3.3.4"
   },
   "devDependencies": {
@@ -20,8 +45,13 @@
     "@vue/eslint-config-prettier": "^8.0.0",
     "eslint": "^8.46.0",
     "eslint-plugin-vue": "^9.16.1",
+    "font-awesome": "^4.7.0",
     "prettier": "^3.0.0",
     "sass": "^1.66.1",
     "vite": "^4.4.9"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/noistommy/vue-nt-toast.git"
   }
 }

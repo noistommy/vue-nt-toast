@@ -1,26 +1,29 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
 import TheWelcome from './components/TheWelcome.vue'
-import { getCurrentInstance } from 'vue'
+import { reactive, getCurrentInstance } from 'vue'
 
 const { proxy } = getCurrentInstance()
 const toast = proxy.$gaToast
 
-const toastOption = {
+const toastOption = reactive({
   round: false,
   useTitle: true,
   useIcon: true,
   closeButton: true,
-  theme: '',
-  position: 'top-right',
+  theme: '', // 'light' | 'icon' | 'icon-bg' | 'line'
+  position: 'top-right', // 'TL'|'TC'|'TR'|'BL'|'BC'|'BR'|'TFW'|'BFW'
   displayOnTop: true,
   snackbar: false,
-  freeze: true,
+  freeze: false,
   timeout: 5000
-}
+})
 
 const showToast = type => {
   toast.show(type, {title: "Test Title", description: 'This is test Toast'}, toastOption)
+}
+const clearToast = () => {
+  toast.clearToast()
 }
 
 </script>
@@ -28,10 +31,11 @@ const showToast = type => {
 <template>
   <header>
     <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" 
-    @click="showToast('info')" />
+    @click="showToast('attention')" />
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
     </div>
+    <button @click="clearToast">Clear</button>
   </header>
 
   <main>

@@ -1,5 +1,6 @@
 import ToastBoard from './toastBoard'
 import './toast.scss'
+import '@fortawesome/fontawesome-free/js/all.js'
 
 const defaultOptions = {
   useTitle: true,

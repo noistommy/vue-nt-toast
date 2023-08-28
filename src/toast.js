@@ -1,8 +1,8 @@
 const statusIcon = {
-  success: 'circle-check',
-  info: 'circle-info',
-  danger: 'circle-exclamation',
-  attention: 'triangle-exclamation',
+  success: 'check-circle',
+  info: 'info-circle',
+  danger: 'exclamation-circle',
+  attention: 'exclamation-triangle',
   importance: 'star'
 }
 
@@ -58,8 +58,8 @@ class Toast {
     this.icon.classList.add('toast-icon')
     const iconClass = statusIcon[this.type] || 'hexagon-exclamation'
     this.icon.innerHTML = `<i class="fa fa-${iconClass}" />`
-    // this.icon.innerHTML = `<img src="./icons/${iconClass}.svg" />`
-    this.toast.appendChild(this.icon)
+    // this.icon.innerHTML = `<img src="./icons/success.svg" />`
+    // this.toast.appendChild(this.icon)
     this.toast.appendChild(this.icon)
   }
   setContents() {
