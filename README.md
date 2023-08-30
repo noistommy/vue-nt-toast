@@ -16,7 +16,7 @@ You can set multiple options across the system, including theme, location, and s
 ```sh
  npm install vue-nt-toast —-save
 ```
-
+---
 ##Usage
 
 ```sh
@@ -32,3 +32,4 @@ app.use(NtToast, {
 	… // set options
 })
 ```
+---
