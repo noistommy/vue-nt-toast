@@ -18,19 +18,29 @@ You can set multiple options across the system, including theme, location, and s
  npm install vue-nt-toast —-save
 ```
 ---
-## Usage
+## Plugin Install
 
-```sh
-# import module
+```javascript
+// import module
 import NtToast from ‘vue-nt-toast’
-# import style
+// import style
 import ‘vue-nt-toast/toasr.css’
 
-# vue 3 plugin install 
+// vue 3 plugin install 
 const app = createApp(App)
 
 app.use(NtToast, {
-	… // set options
+	… // setting for default options
 })
 ```
 ---
+
+## Parameters
+
+| Name | Description | Required |
+| —-- | —-- | —-- |
+| `Type` | Status or Colors | `true` |
+| `Contents.type` | Title text |  |
+| `Contents.description` | Description Text |  |
+| `Options` | user custom options |  |
+
