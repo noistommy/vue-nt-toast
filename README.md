@@ -11,13 +11,14 @@ You can set multiple options across the system, including theme, location, and s
 
 테마, 위치, 스낵바 모드 등 여러 옵션을 전역에서 설정 하여 전체 시스템에 반영 하도록 할수있고, 사용자가 실행 할때 마다 변경 가능한 옵션을 적용 할수도 있습니다. 
 
-##Installation
+---
+## Installation
 
 ```sh
  npm install vue-nt-toast —-save
 ```
 ---
-##Usage
+## Usage
 
 ```sh
 # import module
