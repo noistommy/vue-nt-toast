@@ -15,7 +15,7 @@ You can set multiple options across the system, including theme, location, and s
 ## Installation
 
 ```sh
- npm install vue-nt-toast —-save
+ $ npm install vue-nt-toast —-save
 ```
 ---
 ## Plugin Install
@@ -31,16 +31,73 @@ const app = createApp(App)
 
 app.use(NtToast, {
 	… // setting for default options
-})
+}) 
+```
+---
+
+## Usage
+
+* show(type, contents, options)
+* contents.title (Toast title)
+* contents.description (Toast description)
+
+```javascript
+// get Proxy in current instance 
+import { getCurrentInctance } from 'vue';
+
+// composition api or setup
+const { proxy } = getCurrentInstance();
+
+// show success toast
+proxy.$ntToast.show('success', ..., ...)
+
+// show another type
+proxy.$ntToast.show('info', ..., ...)
+proxy.$ntToast.show('danger', ..., ...)
 ```
 ---
 
 ## Parameters
 
 | Name | Description | Required |
-| —-- | —-- | —-- |
-| `Type` | Status or Colors | `true` |
-| `Contents.type` | Title text |  |
-| `Contents.description` | Description Text |  |
-| `Options` | user custom options |  |
+| --- | --- | --- |
+| `type` | Status or Colors | `true` |
+| `contnts.type` | Title Text | |
+| `contents.description` | Description Text | |
+| `options` | User Custom Options | |
+---
 
+## Properties
+
+* **useTitle**: _boolean_ ▶︎ `true`    
+Setting for show/hide toast title.
+
+* **useIcon**: _boolean_ ▶︎`true`   
+Setting for show/hide toast status icon.
+
+* **round**: _boolean_ ▶︎`false`   
+Setting for enable/disable round border.
+
+* **closeButton**: _boolean_ ▶︎`true`   
+Setting for show/hide close button.
+---
+* **displayOnTop**: _boolean_ ▶︎`false`   
+Setting for order type when toast create.
+
+* **snackbar**: _boolean_ ▶︎`false`   
+Setting for snackbar mode.
+
+* **freeze**: _boolean_ ▶︎`false`   
+Setting for auto close off.
+
+* **timeout**: _number_ ▶︎`5000`   
+Setting for delay time.
+
+* **theme**: _string_ ▶︎``   
+Setting for toast style.
+`light` `icon` `icon-bg` `line` 
+
+* **position**: _string_ ▶︎`top-right`   
+Setting for create position.
+`top|bottom` + `-` + `left|center|right`
+---
