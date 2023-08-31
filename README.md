@@ -41,13 +41,17 @@ app.use(NtToast, {
 * contents.title (Toast title)
 * contents.description (Toast description)
 
+### Set for use global function
+
 ```javascript
 // get Proxy in current instance 
 import { getCurrentInctance } from 'vue';
 
 // composition api or setup
 const { proxy } = getCurrentInstance();
-
+```
+### Call toast func (Show toast)
+```javascript
 // show success toast
 proxy.$ntToast.show('success', ..., ...)
 
@@ -63,7 +67,7 @@ proxy.$ntToast.show('danger', ..., ...)
 | --- | --- | --- |
 | `type` | Status or Colors | `true` |
 | `contnts.type` | Title Text | |
-| `contents.description` | Description Text | |
+| `contents.description` | Description Text | `true` |
 | `options` | User Custom Options | |
 ---
 
