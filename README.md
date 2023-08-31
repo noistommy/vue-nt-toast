@@ -80,7 +80,7 @@ Setting for enable/disable round border.
 
 * **closeButton**: _boolean_ ▶︎`true`   
 Setting for show/hide close button.
----
+
 * **displayOnTop**: _boolean_ ▶︎`false`   
 Setting for order type when toast create.
 
