@@ -102,6 +102,6 @@ Setting for toast style.
 `light` `icon` `icon-bg` `line` 
 
 * **position**: _string_ ▶︎`top-right`   
-Setting for create position.
-`top|bottom` + `-` + `left|center|right`
+Setting for create position.   
+v-align(`top`, `bottom`) and h-align(`left`, `center`, `right`)
 ---
