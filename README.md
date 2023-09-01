@@ -24,7 +24,7 @@ You can set multiple options across the system, including theme, location, and s
 Import { createApp } from “vue”;
 // import module
 import NtToast from “vue-nt-toast”;
-# import  style css or use yours
+// import  style css or use yours
 import “vue-nt-toast/toast.css”;
  
 const app = createApp(App)
