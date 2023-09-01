@@ -18,20 +18,21 @@ You can set multiple options across the system, including theme, location, and s
  $ npm install vue-nt-toast —-save
 ```
 ---
-## Plugin Install
+## Plugin registration
 
 ```javascript
+Import { createApp } from “vue”;
 // import module
-import NtToast from ‘vue-nt-toast’
-// import style
-import ‘vue-nt-toast/toasr.css’
-
-// vue 3 plugin install 
+import NtToast from “vue-nt-toast”;
+# import  style css or use yours
+import “vue-nt-toast/toasr.css”;
+ 
 const app = createApp(App)
 
-app.use(NtToast, {
-	… // setting for default options
-}) 
+Const defaultOptions = {
+	// You can set your initial options here
+};
+app.use(NtToast, defaultOptions)
 ```
 ---
 
@@ -50,7 +51,7 @@ import { getCurrentInctance } from 'vue';
 // composition api or setup
 const { proxy } = getCurrentInstance();
 ```
-### Call toast func (Show toast)
+### Creating toast (Show toast)
 ```javascript
 // show success toast
 proxy.$ntToast.show('success', ..., ...)
