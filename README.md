@@ -103,5 +103,5 @@ Setting for toast style.
 
 * **position**: _string_ ▶︎`top-right`   
 Setting for create position.   
-v-align(`top`, `bottom`) and h-align(`left`, `center`, `right`)
+v-align(`top`, `bottom`) and h-align(`left`, `center`, `right`) and `full-width`
 ---
