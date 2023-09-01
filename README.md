@@ -77,32 +77,32 @@ proxy.$ntToast.show('danger', ..., ...)
 * **useTitle**: _boolean_ ▶︎ `true`    
 Setting for show/hide toast title.
 
-* **useIcon**: _boolean_ ▶︎`true`   
+* **useIcon**: _boolean_ ▶︎ `true`   
 Setting for show/hide toast status icon.
 
-* **round**: _boolean_ ▶︎`false`   
+* **round**: _boolean_ ▶︎ `false`   
 Setting for enable/disable round border.
 
-* **closeButton**: _boolean_ ▶︎`true`   
+* **closeButton**: _boolean_ ▶︎ `true`   
 Setting for show/hide close button.
 
-* **displayOnTop**: _boolean_ ▶︎`false`   
+* **displayOnTop**: _boolean_ ▶︎ `false`   
 Setting for order type when toast create.
 
-* **snackbar**: _boolean_ ▶︎`false`   
+* **snackbar**: _boolean_ ▶︎ `false`   
 Setting for snackbar mode.
 
-* **freeze**: _boolean_ ▶︎`false`   
+* **freeze**: _boolean_ ▶︎ `false`   
 Setting for auto close off.
 
-* **timeout**: _number_ ▶︎`5000`   
+* **timeout**: _number_ ▶︎ `5000`   
 Setting for delay time.
 
-* **theme**: _string_ ▶︎``   
+* **theme**: _string_ ▶︎ `''`   
 Setting for toast style.
 `light` `icon` `icon-bg` `line` 
 
-* **position**: _string_ ▶︎`top-right`   
+* **position**: _string_ ▶︎ `top-right`   
 Setting for create position.   
 v-align(`top`, `bottom`) and h-align(`left`, `center`, `right`) and `full-width`
 ---
