@@ -25,7 +25,7 @@ Import { createApp } from “vue”;
 // import module
 import NtToast from “vue-nt-toast”;
 # import  style css or use yours
-import “vue-nt-toast/toasr.css”;
+import “vue-nt-toast/toast.css”;
  
 const app = createApp(App)
 
