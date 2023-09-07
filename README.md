@@ -6,7 +6,7 @@ vue-nt-toast
 ![Static Badge](https://img.shields.io/badge/sass-%23CC6699?style=for-the-badge)
 ![Static Badge](https://img.shields.io/badge/vite-bundler-%23646CFF?style=for-the-badge)
 ![Static Badge](https://img.shields.io/badge/icon-font_awesome_4.7.0-%23528DD7?style=for-the-badge)
-
+![Static Badge](https://img.shields.io/badge/vue_plugin-user_custom_with_vue_3-%234FC08D?style=for-the-badge)
 
 `vue-nt-toast` is a JavaScript notification system library. It is made available through the installation of the plugin in the Vue project.
 
