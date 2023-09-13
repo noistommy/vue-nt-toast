@@ -8,6 +8,9 @@ vue-nt-toast
 ![Static Badge](https://img.shields.io/badge/icon-font_awesome_4.7.0-%23528DD7?style=for-the-badge)
 ![Static Badge](https://img.shields.io/badge/vue_plugin-user_custom_with_vue_3-%234FC08D?style=for-the-badge)
 
+![preview](https://github.com/noistommy/vue-nt-toast/assets/6008185/991fe4fc-1144-440d-8b20-de1ede57f0b7)
+
+
 `vue-nt-toast` is a JavaScript notification system library. It is made available through the installation of the plugin in the Vue project.
 
 It is designed to operate outside the application (the top layer) so as not to affect the application's layer system as much as possible, and provides status indications of "success", "risk", "information", "attention", and "important" depending on the type of content.
