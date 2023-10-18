@@ -1,12 +1,11 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
 import TheWelcome from './components/TheWelcome.vue'
-import { reactive, getCurrentInstance } from 'vue'
+import { ref, getCurrentInstance } from 'vue'
 
 const { proxy } = getCurrentInstance()
 const toast = proxy.$gaToast
-
-const toastOption = reactive({
+const type = ref('success')
+let toastOption = {
   round: false,
   useTitle: true,
   useIcon: true,
@@ -17,10 +16,11 @@ const toastOption = reactive({
   snackbar: false,
   freeze: false,
   timeout: 5000
-})
-
-const showToast = type => {
-  toast.show(type, {title: "Test Title", description: 'This is test Toast'}, toastOption)
+}
+const setOption = (value) => toastOption = value
+const setType = value => type.value = value
+const showToast = () => {
+  toast.show(type.value, {title: "Test Title", description: 'This is test Toast'}, toastOption)
 }
 const clearToast = () => {
   toast.clearToast()
@@ -30,16 +30,17 @@ const clearToast = () => {
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" 
-    @click="showToast('attention')" />
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <div class="greetings">
+        <h1 class="header">Nt Toast</h1>
+        <button class="ga-button" :class="type" @click="showToast">show toast</button>
+        <button class="ga-button secondary" @click="clearToast">clear</button>
+      </div>
     </div>
-    <button @click="clearToast">Clear</button>
   </header>
 
   <main>
-    <TheWelcome />
+    <TheWelcome v-model="type" @setting="setOption" @update="setType"/>
   </main>
 </template>
 
@@ -53,7 +54,7 @@ header {
   margin: 0 auto 2rem;
 }
 
-@media (min-width: 1024px) {
+/* @media (min-width: 1024px) {
   header {
     display: flex;
     place-items: center;
@@ -69,5 +70,5 @@ header {
     place-items: flex-start;
     flex-wrap: wrap;
   }
-}
+} */
 </style>

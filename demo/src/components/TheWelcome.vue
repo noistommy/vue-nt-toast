@@ -1,86 +1,178 @@
 <script setup>
 import WelcomeItem from './WelcomeItem.vue'
-import DocumentationIcon from './icons/IconDocumentation.vue'
-import ToolingIcon from './icons/IconTooling.vue'
-import EcosystemIcon from './icons/IconEcosystem.vue'
-import CommunityIcon from './icons/IconCommunity.vue'
-import SupportIcon from './icons/IconSupport.vue'
+import { reactive, defineEmits, watch, defineProps } from 'vue';
+
+const themeList = ['default', 'light', 'icon', 'icon-bg', 'line']
+const colorList = ['success', 'danger', 'importance', 'attention', 'info']
+const colorList2 = ['red', 'sunset', 'orange', 'amber', 'yellow', 'citron', 'lime', 'green', 'mint',
+'teal', 'cyan', 'blue', 'indigo', 'purple', 'pink', 'rose']
+// $colors: (
+//   'red': #D93B3B,
+//   'sunset': #D44D32,
+//   'orange': #D95B2C,
+//   'amber': #D3873F,
+//   'yellow': #F5B54D,
+//   'citron': #CAC747,
+//   'lime': #85AB39,
+//   'green': #48992F,
+//   'mint': #3A874F,
+//   'teal': #449698,
+//   'cyan': #4D9BCC,
+//   'blue': #4E7AF8,
+//   'indigo': #5642ED,
+//   'purple': #8756F3,
+//   'pink': #BF3DA0,
+//   'rose': #BB3A62,
+// );
+
+const positionList = ['top-left', 'top-center', 'top-right', 'bottom-left', 'bottom-center', 'bottom-right', 'top-full-width', 'bottom-full-width']
+const emit = defineEmits(['setting','update:modelValue'])
+
+const props = defineProps({
+  modelValue: String
+})
+const toastOption = reactive({
+  round: false,
+  useTitle: true,
+  useIcon: true,
+  closeButton: true,
+  theme: 'default', // 'light' | 'icon' | 'icon-bg' | 'line'
+  position: 'top-right', // 'TL'|'TC'|'TR'|'BL'|'BC'|'BR'|'TFW'|'BFW'
+  displayOnTop: true,
+  snackbar: false,
+  freeze: false,
+  timeout: 5000
+})
+
+watch(toastOption, () => emit('setting', toastOption))
+
+const setType = type => emit('update:modelValue', type)
 </script>
 
 <template>
+  <h1 class="header">Setting</h1>
   <WelcomeItem>
     <template #icon>
-      <DocumentationIcon />
+      <i class="fa fa-cog"></i>
     </template>
-    <template #heading>Documentation</template>
-
-    Vue’s
-    <a href="https://vuejs.org/" target="_blank" rel="noopener">official documentation</a>
-    provides you with all information you need to get started.
+    <template #heading>Basic setting</template>
+    <div class="ga-list list">
+      <div class="item ga-message">
+        use title
+        <div class="btn-set">
+          <label class="ga-switch slide inside">
+            <input type="checkbox" v-model="toastOption.useTitle" :checked="toastOption.useTitle">
+            <span class="switch round"></span>
+          </label>
+        </div>
+      </div>
+      <div class="item ga-message">
+        use icon
+        <div class="btn-set">
+          <label class="ga-switch slide inside">
+            <input type="checkbox" v-model="toastOption.useIcon" :checked="toastOption.useIcon">
+            <span class="switch round"></span>
+          </label>
+        </div>
+      </div>
+      <div class="item ga-message">
+        use round
+        <div class="btn-set">
+          <label class="ga-switch slide inside">
+            <input type="checkbox" v-model="toastOption.round"  :checked="toastOption.round">
+            <span class="switch round"></span>
+          </label>
+        </div>
+      </div>
+      <div class="item ga-message">
+        use close button
+        <div class="btn-set">
+          <label class="ga-switch slide inside">
+            <input type="checkbox" v-model="toastOption.closeButton" :checked="toastOption.closeButton">
+            <span class="switch round"></span>
+          </label>
+        </div>
+      </div>
+      <div class="item ga-message">
+        create from top
+        <div class="btn-set">
+          <label class="ga-switch slide inside">
+            <input type="checkbox" v-model="toastOption.displayOnTop" :checked="toastOption.displayOnTop">
+            <span class="switch round"></span>
+          </label>
+        </div>
+      </div>
+      <div class="item ga-message">
+        use snackbar mode
+        <div class="btn-set">
+          <label class="ga-switch slide inside">
+            <input type="checkbox" v-model="toastOption.snackbar" :checked="toastOption.snackbar">
+            <span class="switch round"></span>
+          </label>
+        </div>
+      </div>
+      <div class="item ga-message">
+        use auto delete
+        <div class="btn-set">
+          <label class="ga-switch slide inside">
+            <input type="checkbox" v-model="toastOption.freeze" :checked="toastOption.freeze">
+            <span class="switch round"></span>
+          </label>
+        </div>
+      </div>
+    </div>
   </WelcomeItem>
 
   <WelcomeItem>
     <template #icon>
-      <ToolingIcon />
+      <i class="fa fa-eye"></i>
     </template>
-    <template #heading>Tooling</template>
-
-    This project is served and bundled with
-    <a href="https://vitejs.dev/guide/features.html" target="_blank" rel="noopener">Vite</a>. The
-    recommended IDE setup is
-    <a href="https://code.visualstudio.com/" target="_blank" rel="noopener">VSCode</a> +
-    <a href="https://github.com/johnsoncodehk/volar" target="_blank" rel="noopener">Volar</a>. If
-    you need to test your components and web pages, check out
-    <a href="https://www.cypress.io/" target="_blank" rel="noopener">Cypress</a> and
-    <a href="https://on.cypress.io/component" target="_blank">Cypress Component Testing</a>.
-
-    <br />
-
-    More instructions are available in <code>README.md</code>.
+    <template #heading>Theme</template>
+    <template v-for="theme in themeList" :key="theme">
+      <button 
+        class="ga-button" 
+        :class="{deepblue: theme === toastOption.theme}" 
+        @click="toastOption.theme = theme">
+        {{ theme }}
+      </button>
+    </template>
   </WelcomeItem>
 
   <WelcomeItem>
     <template #icon>
-      <EcosystemIcon />
+      <i class="fa fa-palette"></i>
     </template>
-    <template #heading>Ecosystem</template>
-
-    Get official tools and libraries for your project:
-    <a href="https://pinia.vuejs.org/" target="_blank" rel="noopener">Pinia</a>,
-    <a href="https://router.vuejs.org/" target="_blank" rel="noopener">Vue Router</a>,
-    <a href="https://test-utils.vuejs.org/" target="_blank" rel="noopener">Vue Test Utils</a>, and
-    <a href="https://github.com/vuejs/devtools" target="_blank" rel="noopener">Vue Dev Tools</a>. If
-    you need more resources, we suggest paying
-    <a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">Awesome Vue</a>
-    a visit.
+    <template #heading>Colors / Status</template>
+    <template v-for="color in colorList" :key="color">
+      <button class="ga-button" :class="props.modelValue === color ? color : ''" @click="setType(color)">{{ color }}</button>
+    </template>
+    <template v-for="color in colorList2" :key="color">
+      <button class="ga-button" :class="props.modelValue === color ? `ga-${color}` : ''" @click="setType(color)">{{ color }}</button>
+    </template>
   </WelcomeItem>
 
   <WelcomeItem>
     <template #icon>
-      <CommunityIcon />
+      <i class="fa fa-arrows"></i>
     </template>
-    <template #heading>Community</template>
-
-    Got stuck? Ask your question on
-    <a href="https://chat.vuejs.org" target="_blank" rel="noopener">Vue Land</a>, our official
-    Discord server, or
-    <a href="https://stackoverflow.com/questions/tagged/vue.js" target="_blank" rel="noopener"
-      >StackOverflow</a
-    >. You should also subscribe to
-    <a href="https://news.vuejs.org" target="_blank" rel="noopener">our mailing list</a> and follow
-    the official
-    <a href="https://twitter.com/vuejs" target="_blank" rel="noopener">@vuejs</a>
-    twitter account for latest news in the Vue world.
+    <template #heading>Position</template>
+    <template v-for="pos in positionList" :key="pos">
+      <button 
+        class="ga-button" 
+        :class="{deeppurple: pos === toastOption.position}" 
+         @click="toastOption.position = pos">
+         {{ pos }}
+      </button>
+    </template>
   </WelcomeItem>
 
   <WelcomeItem>
     <template #icon>
-      <SupportIcon />
+      <i class="fa fa-hourglass-half"></i>
     </template>
-    <template #heading>Support Vue</template>
-
-    As an independent project, Vue relies on community backing for its sustainability. You can help
-    us by
-    <a href="https://vuejs.org/sponsor/" target="_blank" rel="noopener">becoming a sponsor</a>.
+    <template #heading>Delay time</template>
+    <div class="ga-input">
+      <input type="number" v-model="toastOption.timeout" />
+    </div>
   </WelcomeItem>
 </template>
