@@ -100,7 +100,6 @@ $colors: (
     display: flex;
     flex-direction: column;
     z-index: 9999;
-    top: 0;
     &.on-top {
       flex-direction: column-reverse;
     }
