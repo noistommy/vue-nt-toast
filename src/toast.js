@@ -56,7 +56,7 @@ class Toast {
     if (!this.options.useIcon || this.options.theme === 'line') return
     this.icon = document.createElement('div')
     this.icon.classList.add('toast-icon')
-    const iconClass = statusIcon[this.type] || 'hexagon-exclamation'
+    const iconClass = statusIcon[this.type] || 'exclamation-circle'
     this.icon.innerHTML = `<i class="fa fa-${iconClass}" />`
     // this.icon.innerHTML = `<img src="./icons/success.svg" />`
     // this.toast.appendChild(this.icon)

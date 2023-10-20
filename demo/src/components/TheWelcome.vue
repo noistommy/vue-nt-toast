@@ -6,24 +6,24 @@ const themeList = ['default', 'light', 'icon', 'icon-bg', 'line']
 const colorList = ['success', 'danger', 'importance', 'attention', 'info']
 const colorList2 = ['red', 'sunset', 'orange', 'amber', 'yellow', 'citron', 'lime', 'green', 'mint',
 'teal', 'cyan', 'blue', 'indigo', 'purple', 'pink', 'rose']
-// $colors: (
-//   'red': #D93B3B,
-//   'sunset': #D44D32,
-//   'orange': #D95B2C,
-//   'amber': #D3873F,
-//   'yellow': #F5B54D,
-//   'citron': #CAC747,
-//   'lime': #85AB39,
-//   'green': #48992F,
-//   'mint': #3A874F,
-//   'teal': #449698,
-//   'cyan': #4D9BCC,
-//   'blue': #4E7AF8,
-//   'indigo': #5642ED,
-//   'purple': #8756F3,
-//   'pink': #BF3DA0,
-//   'rose': #BB3A62,
-// );
+const toastColor = {
+  red: '#D93B3B',
+  sunset: '#D44D32',
+  orange: '#D95B2C',
+  amber: '#D3873F',
+  yellow: '#F5B54D',
+  citron: '#CAC747',
+  lime: '#85AB39',
+  green: '#48992F',
+  mint: '#3A874F',
+  teal: '#449698',
+  cyan: '#4D9BCC',
+  blue: '#4E7AF8',
+  indigo: '#5642ED',
+  purple: '#8756F3',
+  pink: '#BF3DA0',
+  rose: '#BB3A62',
+}
 
 const positionList = ['top-left', 'top-center', 'top-right', 'bottom-left', 'bottom-center', 'bottom-right', 'top-full-width', 'bottom-full-width']
 const emit = defineEmits(['setting','update:modelValue'])
@@ -47,6 +47,11 @@ const toastOption = reactive({
 watch(toastOption, () => emit('setting', toastOption))
 
 const setType = type => emit('update:modelValue', type)
+const setColorType = () => {
+  const color = colorList2[parseInt(Math.random() * 100) % colorList2.length]
+
+  emit('update:modelValue', color)
+}
 </script>
 
 <template>
@@ -142,13 +147,17 @@ const setType = type => emit('update:modelValue', type)
     <template #icon>
       <i class="fa fa-palette"></i>
     </template>
-    <template #heading>Colors / Status</template>
+    <template #heading>Status / Colors</template>
     <template v-for="color in colorList" :key="color">
       <button class="ga-button" :class="props.modelValue === color ? color : ''" @click="setType(color)">{{ color }}</button>
-    </template>
-    <template v-for="color in colorList2" :key="color">
+    </template>|
+    <button 
+    class="ga-button"
+    :style="{backgroundColor: toastColor[modelValue] || none}"
+    @click="setColorType">Select Random Color type</button>
+    <!-- <template v-for="color in colorList2" :key="color">
       <button class="ga-button" :class="props.modelValue === color ? `ga-${color}` : ''" @click="setType(color)">{{ color }}</button>
-    </template>
+    </template> -->
   </WelcomeItem>
 
   <WelcomeItem>
