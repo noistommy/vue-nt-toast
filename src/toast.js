@@ -22,6 +22,7 @@ class Toast {
     this.toast = document.createElement('div')
     this.toast.classList.add('toast', 'swing')
     // const contents = document.createElement('div')
+
     const contents = this.setContents()
     this.setIcon()
     if (this.options.round) {
@@ -52,6 +53,8 @@ class Toast {
   //     clearTimeout(this.interval)
   //   })
   // }
+
+  
   setIcon() {
     if (!this.options.useIcon || this.options.theme === 'line') return
     this.icon = document.createElement('div')
