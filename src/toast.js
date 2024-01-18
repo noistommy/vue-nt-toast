@@ -21,6 +21,7 @@ class Toast {
   notify() {
     this.toast = document.createElement('div')
     this.toast.classList.add('toast', 'swing')
+    // const contents = document.createElement('div')
     const contents = this.setContents()
     this.setIcon()
     if (this.options.round) {
@@ -41,16 +42,24 @@ class Toast {
 
     contents.classList.add('toast-contents')
     this.toast.appendChild(contents)
+    // this.interval = setTimeout(() => this.hide(), this.options.timeout)
     return this.toast
   }
-
+  // hide() {
+  //   this.toast.classList.remove('swing')
+  //   this.toast.addEventListener('transitionend', () => {
+  //     this.toast.remove()
+  //     clearTimeout(this.interval)
+  //   })
+  // }
   setIcon() {
     if (!this.options.useIcon || this.options.theme === 'line') return
     this.icon = document.createElement('div')
     this.icon.classList.add('toast-icon')
     const iconClass = statusIcon[this.type] || 'exclamation-circle'
     this.icon.innerHTML = `<i class="fa fa-${iconClass}" />`
-
+    // this.icon.innerHTML = `<img src="./icons/success.svg" />`
+    // this.toast.appendChild(this.icon)
     this.toast.appendChild(this.icon)
   }
   setContents() {
