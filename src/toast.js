@@ -50,7 +50,6 @@ class Toast {
     this.icon.classList.add('toast-icon')
     const iconClass = statusIcon[this.type] || 'exclamation-circle'
     this.icon.innerHTML = `<i class="fa fa-${iconClass}" />`
-
     this.toast.appendChild(this.icon)
   }
   setContents() {
