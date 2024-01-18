@@ -41,16 +41,9 @@ class Toast {
 
     contents.classList.add('toast-contents')
     this.toast.appendChild(contents)
-    // this.interval = setTimeout(() => this.hide(), this.options.timeout)
     return this.toast
   }
-  // hide() {
-  //   this.toast.classList.remove('swing')
-  //   this.toast.addEventListener('transitionend', () => {
-  //     this.toast.remove()
-  //     clearTimeout(this.interval)
-  //   })
-  // }
+
   setIcon() {
     if (!this.options.useIcon || this.options.theme === 'line') return
     this.icon = document.createElement('div')
