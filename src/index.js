@@ -12,7 +12,8 @@ const defaultOptions = {
   clickToClose: true,
   displayOnTop: false,
   snackbar: false,
-  freeze: true
+  freeze: true,
+  transition: 'swing'
 }
 
 let extendOptions = {}
