@@ -1,9 +1,11 @@
 <script setup>
 import TheWelcome from './components/TheWelcome.vue'
-import { ref, getCurrentInstance } from 'vue'
+import { ref, getCurrentInstance, inject } from 'vue'
 
-const { proxy } = getCurrentInstance()
-const toast = proxy.$gaToast
+// const { proxy } = getCurrentInstance()
+// const toast = proxy.$ntToast
+
+const toast = inject('$ntToast')
 const type = ref('success')
 let toastOption = {
   round: false,

@@ -63,19 +63,21 @@ app.use(NtToast, defaultOptions)
 
 ```javascript
 // get Proxy in current instance 
-import { getCurrentInctance } from 'vue';
-
+// import { getCurrentInctance } from 'vue';
+import { inject } from 'vue'
 // composition api or setup
-const { proxy } = getCurrentInstance();
+// const { proxy } = getCurrentInstance();
+
+const toast = inject('$ntToast')
 ```
 ### Creating toast (Show toast)
 ```javascript
 // show success toast
-proxy.$ntToast.show('success', ..., ...)
+toast.show('success', ..., ...)
 
 // show another type
-proxy.$ntToast.show('info', ..., ...)
-proxy.$ntToast.show('danger', ..., ...)
+toast.show('info', ..., ...)
+toast.show('danger', ..., ...)
 ```
 ---
 

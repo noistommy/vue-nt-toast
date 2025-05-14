@@ -23,6 +23,8 @@ const setOption = option => {
 export default {
   install(app, options = {}) {
     extendOptions = setOption(options)
-    app.config.globalProperties.$gaToast = new ToastBoard(extendOptions)
+    app.config.globalProperties.$ntToast = new ToastBoard(extendOptions)
+
+    app.provide('$ntToast', new ToastBoard(extendOptions))
   }
 }
