@@ -61,71 +61,80 @@ const setColorType = () => {
       <i class="fa fa-cog"></i>
     </template>
     <template #heading>Basic setting</template>
-    <div class="ga-list list">
-      <div class="item ga-message">
-        use title
-        <div class="btn-set">
-          <label class="ga-switch slide inside">
-            <input type="checkbox" v-model="toastOption.useTitle" :checked="toastOption.useTitle">
-            <span class="switch round"></span>
-          </label>
+    <div class="ga-grid divide-2">
+      <div class="column">
+        <div class="ga-list list">
+          <div class="item ga-message">
+            use title: 제목 사용 여부
+            <div class="btn-set">
+              <label class="ga-switch slide inside">
+                <input type="checkbox" v-model="toastOption.useTitle" :checked="toastOption.useTitle">
+                <span class="switch round"></span>
+              </label>
+            </div>
+          </div>
+          <div class="item ga-message">
+            use icon: 아이콘 사용 여부
+            <div class="btn-set">
+              <label class="ga-switch slide inside">
+                <input type="checkbox" v-model="toastOption.useIcon" :checked="toastOption.useIcon">
+                <span class="switch round"></span>
+              </label>
+            </div>
+          </div>
+          <div class="item ga-message">
+            use round: 라운드 형태 사용 여부
+            <div class="btn-set">
+              <label class="ga-switch slide inside">
+                <input type="checkbox" v-model="toastOption.round"  :checked="toastOption.round">
+                <span class="switch round"></span>
+              </label>
+            </div>
+          </div>
+          <div class="item ga-message">
+            use close button: 닫기 버튼 사용 여부
+            <div class="btn-set">
+              <label class="ga-switch slide inside">
+                <input type="checkbox" v-model="toastOption.closeButton" :checked="toastOption.closeButton">
+                <span class="switch round"></span>
+              </label>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="item ga-message">
-        use icon
-        <div class="btn-set">
-          <label class="ga-switch slide inside">
-            <input type="checkbox" v-model="toastOption.useIcon" :checked="toastOption.useIcon">
-            <span class="switch round"></span>
-          </label>
-        </div>
-      </div>
-      <div class="item ga-message">
-        use round
-        <div class="btn-set">
-          <label class="ga-switch slide inside">
-            <input type="checkbox" v-model="toastOption.round"  :checked="toastOption.round">
-            <span class="switch round"></span>
-          </label>
-        </div>
-      </div>
-      <div class="item ga-message">
-        use close button
-        <div class="btn-set">
-          <label class="ga-switch slide inside">
-            <input type="checkbox" v-model="toastOption.closeButton" :checked="toastOption.closeButton">
-            <span class="switch round"></span>
-          </label>
-        </div>
-      </div>
-      <div class="item ga-message">
-        create from top
-        <div class="btn-set">
-          <label class="ga-switch slide inside">
-            <input type="checkbox" v-model="toastOption.displayOnTop" :checked="toastOption.displayOnTop">
-            <span class="switch round"></span>
-          </label>
-        </div>
-      </div>
-      <div class="item ga-message">
-        use snackbar mode
-        <div class="btn-set">
-          <label class="ga-switch slide inside">
-            <input type="checkbox" v-model="toastOption.snackbar" :checked="toastOption.snackbar">
-            <span class="switch round"></span>
-          </label>
-        </div>
-      </div>
-      <div class="item ga-message">
-        use auto delete
-        <div class="btn-set">
-          <label class="ga-switch slide inside">
-            <input type="checkbox" v-model="toastOption.freeze" :checked="toastOption.freeze">
-            <span class="switch round"></span>
-          </label>
+      <div class="column">
+        <div class="ga-list list">
+          <div class="item ga-message">
+            create from top: 신규 토스트 생성 위치
+            <div class="btn-set">
+              <label class="ga-switch slide inside">
+                <input type="checkbox" v-model="toastOption.displayOnTop" :checked="toastOption.displayOnTop">
+                <span class="switch round"></span>
+              </label>
+            </div>
+          </div>
+          <div class="item ga-message">
+            use snackbar mode: 스넥바 모드 
+            <div class="btn-set">
+              <label class="ga-switch slide inside">
+                <input type="checkbox" v-model="toastOption.snackbar" :checked="toastOption.snackbar">
+                <span class="switch round"></span>
+              </label>
+            </div>
+          </div>
+          <div class="item ga-message">
+            use auto delete: 자동 삭제 사용 여부
+            <div class="btn-set">
+              <label class="ga-switch slide inside">
+                <input type="checkbox" v-model="toastOption.freeze" :checked="toastOption.freeze">
+                <span class="switch round"></span>
+              </label>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+    
   </WelcomeItem>
 
   <WelcomeItem>
