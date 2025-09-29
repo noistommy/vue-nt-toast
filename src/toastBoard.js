@@ -25,14 +25,14 @@ class ToastBoard {
       ? null
       : setTimeout(() => this.hideToast(toastEl, interval), extendOption.timeout)
     if (extendOption.clickToClose) {
-      toastEl.onclick = () => {
+      toastEl.addEventListener('click', () => {
         this.hideToast(toastEl, interval)
-      }
+      })
     }
     if (extendOption.closeButton) {
-      closeEl.onClick = () => {
+      closeEl.addEventListener('click', () => {
         this.hideToast(toastEl, interval)
-      }
+      })
     }
   }
   getBoard(options) {
@@ -77,9 +77,11 @@ class ToastBoard {
     })
   }
   clear() {
-    if (this.board) {
+    if (this.board && this.board.parentNode) {
       this.board.remove()
+      this.board = null
     }
+    this.toastId = 0
   }
 }
 

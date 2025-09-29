@@ -1,10 +1,12 @@
-const statusIcon = {
-  success: 'check-circle',
-  info: 'info-circle',
-  danger: 'exclamation-circle',
-  attention: 'exclamation-triangle',
-  importance: 'star'
-}
+// const statusIcon = {
+//   success: 'check-circle',
+//   info: 'info-circle',
+//   danger: 'exclamation-circle',
+//   attention: 'exclamation-triangle',
+//   importance: 'star'
+// }
+
+import { statusIconSolid } from './toastIcons'
 
 class Toast {
   constructor(type, msg, options) {
@@ -59,8 +61,9 @@ class Toast {
     if (!this.options.useIcon || this.options.theme === 'line') return
     this.icon = document.createElement('div')
     this.icon.classList.add('toast-icon')
-    const iconClass = statusIcon[this.type] || 'exclamation-circle'
-    this.icon.innerHTML = `<i class="fa fa-${iconClass}" />`
+    const iconClass = statusIconSolid[this.type] || statusIconSolid['info']
+    this.icon.innerHTML = iconClass
+    // this.icon.innerHTML = `<i class="fa fa-${iconClass}" />`
     // this.icon.innerHTML = `<img src="./icons/success.svg" />`
     // this.toast.appendChild(this.icon)
     this.toast.appendChild(this.icon)

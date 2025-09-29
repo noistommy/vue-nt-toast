@@ -216,6 +216,9 @@ $colors: (
       .toast-icon {
         flex-shrink: 1;
         padding: 10px;
+        > svg {
+          height: 1em;
+        }
       }
       &.line-left {
         .toast-contents {
