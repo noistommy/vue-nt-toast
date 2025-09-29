@@ -1,6 +1,6 @@
 {
   "name": "vue-nt-toast",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Toast system plugin with vue3",
   "author": "Minyoung Tommy Kim",
   "private": false,
