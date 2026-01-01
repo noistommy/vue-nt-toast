@@ -1,12 +1,12 @@
 <template>
   <div class="item">
-    <i>
+    <span class="icon">
       <slot name="icon"></slot>
-    </i>
+    </span>
     <div class="details">
-      <h3>
+      <div class="title">
         <slot name="heading"></slot>
-      </h3>
+      </div>
       <slot></slot>
     </div>
   </div>
@@ -14,9 +14,10 @@
 
 <style scoped>
 .item {
-  margin-top: 2rem;
+  margin-top: 4rem;
   display: flex;
   position: relative;
+
 }
 
 .details {
@@ -24,64 +25,31 @@
   margin-left: 1rem;
 }
 
-i {
+span.icon {
   display: flex;
   place-items: center;
   place-content: center;
   width: 32px;
   height: 32px;
 
-  color: var(--color-text);
+  color: var(--txt);
+  background-color: var(--suf);
 }
 
-h3 {
+.title {
   font-size: 1.2rem;
   font-weight: 500;
-  margin-bottom: 0.4rem;
-  color: var(--color-heading);
-}
-
-@media (min-width: 1024px) {
-  .item {
-    margin-top: 0;
-    padding: 0.4rem 0 1rem calc(var(--section-gap) / 2);
-  }
-
-  i {
-    top: calc(50% - 25px);
-    left: -26px;
-    position: absolute;
-    border: 1px solid var(--color-border);
-    background: var(--color-background);
-    border-radius: 8px;
-    width: 50px;
-    height: 50px;
-  }
-
-  .item:before {
-    content: ' ';
-    border-left: 1px solid var(--color-border);
-    position: absolute;
-    left: 0;
-    bottom: calc(50% + 25px);
-    height: calc(50% - 25px);
-  }
-
-  .item:after {
-    content: ' ';
-    border-left: 1px solid var(--color-border);
-    position: absolute;
-    left: 0;
-    top: calc(50% + 25px);
-    height: calc(50% - 25px);
-  }
-
-  .item:first-of-type:before {
-    display: none;
-  }
-
-  .item:last-of-type:after {
-    display: none;
+  margin-bottom: 0.8rem;
+  color: var(--txt);
+  &:deep() p {
+    
+    font-size: 14px;
+    color: var(--txt-light);
+    width: 85%;
+    &:first-child {
+      margin-top: 15px;
+    }
   }
 }
+
 </style>
