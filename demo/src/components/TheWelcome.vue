@@ -182,9 +182,9 @@ const showToast = () => emit('setting', toastOption)
       <div class="contents">
         <button 
           class="ga-button" 
-          :class="{deepblue: toastOption.snackbar}" 
+          :class="{deepblue: toastOption.freeze}" 
           @click="showToast">
-          Freeze {{ toastOption.snackbar ? 'On' : 'Off' }}
+          Freeze {{ toastOption.freeze ? 'On' : 'Off' }}
         </button>
       </div>
     </div>

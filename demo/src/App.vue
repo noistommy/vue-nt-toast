@@ -1,4 +1,5 @@
 <script setup>
+import GetStarted from './components/GetStarted.vue'
 import TheWelcome from './components/TheWelcome.vue'
 import { ref, inject } from 'vue'
 
@@ -40,9 +41,11 @@ const clearToast = () => {
 
 const selectTheme = (mode) => {
   const html = document.documentElement;
+  theme.value = mode
+  
   html.className = ''
   html.classList.add(`${mode}-mode`);
-  theme.value = mode
+  
   sessionStorage.setItem('theme-mode', mode)
 }
 
@@ -79,6 +82,7 @@ const selectTheme = (mode) => {
   </header>
 
   <main>
+    <GetStarted :theme-mode="theme" />
     <TheWelcome v-model="type" @setting="setOption" @update="setType"/>
   </main>
 </template>
@@ -99,6 +103,9 @@ const selectTheme = (mode) => {
   }
 .greetings {
   text-align:center;
+}
+main {
+  margin-top: 100px;
 }
 .main-title {
   text-align: center;
