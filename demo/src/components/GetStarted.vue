@@ -51,26 +51,20 @@ const highlight = async () => {
   // console.log(props.themeMode, mode.value)
   const highlighter = await createHighlighter({
     langs: ['bash', 'js', 'vue'],
-    themes: ['vitesse-light', 'rose-pine-dawn', 'github-light', 'github-dark'],
+    themes: ['vitesse-light', 'vitesse-dark', 'rose-pine-dawn', 'github-light', 'github-dark'],
   })
-
-  await highlighter.loadTheme('github-light')
-  await highlighter.loadTheme('github-dark')
-  await highlighter.loadLanguage('bash')
-  await highlighter.loadLanguage('js')
-  await highlighter.loadLanguage('vue')
 
   installCode.value = highlighter.codeToHtml(codeInstall, {
     lang: 'bash',
-    theme: `github-${mode.value}`,
+    theme: `vitesse-${mode.value}`,
   })
   registCode.value = highlighter.codeToHtml(codeRegist, {
     lang: 'js',
-    theme: `github-${mode.value}`,
+    theme: `vitesse-${mode.value}`,
   })
   usageCode.value = highlighter.codeToHtml(codeUsage, {
     lang: 'vue',
-    theme: `github-${mode.value}`,
+    theme: `vitesse-${mode.value}`,
   })
 }
 // onMounted(() => highlight())

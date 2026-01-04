@@ -73,7 +73,9 @@ const selectTheme = (mode) => {
     </div>
     <div class="wrapper">
       <div class="greetings">
-        <div class="main-title">Nt Toast</div>
+        <div class="main-title">
+        Nt Toast
+        </div>
         <!-- <div class="sub-title">Nt Toast</div> -->
         <button class="ga-button" :class="type" @click="showToast">show toast</button>
         <button class="ga-button secondary" @click="clearToast">clear</button>
