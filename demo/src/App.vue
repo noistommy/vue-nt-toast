@@ -106,6 +106,10 @@ const selectTheme = (mode) => {
 .greetings {
   text-align:center;
 }
+header {
+  margin-top: 100px;
+  text-align: center;
+}
 main {
   margin-top: 100px;
 }

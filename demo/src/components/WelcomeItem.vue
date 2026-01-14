@@ -21,6 +21,7 @@
 }
 
 .details {
+  width: 100%;
   flex: 1;
   margin-left: 1rem;
 }
@@ -48,6 +49,17 @@ span.icon {
     width: 85%;
     &:first-child {
       margin-top: 15px;
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .item {
+    .icon {
+      display: none;
+    }
+    .details {
+      margin: 0;
     }
   }
 }
