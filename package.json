@@ -1,6 +1,6 @@
 {
   "name": "vue-nt-toast",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Toast system plugin with vue3",
   "author": "Minyoung Tommy Kim",
   "private": false,
@@ -19,7 +19,8 @@
     ".": {
       "import": "./dist/nt-toast.es.js",
       "require": "./dist/nt-toast.umd.js"
-    }
+    },
+    "./toast.css": "./dist/toast.css"
   },
   "files": [
     "dist",
@@ -34,7 +35,6 @@
     "notification",
     "toast"
   ],
-  "style": "./dist/toast.css",
   "peerDependencies": {
     "vue": "^3.3.4"
   },

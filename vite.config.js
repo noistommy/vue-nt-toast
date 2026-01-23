@@ -43,7 +43,7 @@ const demoConfig = defineConfig({
   root: "./demo",
   base: process.env.NODE_ENV === 'production' ? '/vue-nt-toast/' : '/',
   server: {
-    port: 5902
+    port: 5199
   }
 })
 
