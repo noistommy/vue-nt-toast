@@ -6,14 +6,15 @@ const defaultOptions = {
   useTitle: true,
   useIcon: true,
   closeButton: true,
-  round: false,
-  theme: '',
-  timeout: 5000,
   clickToClose: true,
-  displayOnTop: false,
+  round: false,
+  theme: 'default',
+  position: 'bottom-right',
+  displayOnTop: true,
   snackbar: false,
-  freeze: true,
-  transition: 'swing'
+  freeze: false,
+  transition: 'swing',
+  timeout: 5000
 }
 
 let extendOptions = {}
