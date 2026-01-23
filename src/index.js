@@ -26,7 +26,6 @@ export default {
   install(app, options = {}) {
     extendOptions = setOption(options)
     app.config.globalProperties.$ntToast = new ToastBoard(extendOptions)
-
     app.provide('$ntToast', new ToastBoard(extendOptions))
   }
 }
