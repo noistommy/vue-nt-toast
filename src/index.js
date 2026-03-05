@@ -14,7 +14,8 @@ const defaultOptions = {
   snackbar: false,
   freeze: false,
   transition: 'swing',
-  timeout: 5000
+  timeout: 5000,
+  title: 'Toast List'
 }
 
 let extendOptions = {}

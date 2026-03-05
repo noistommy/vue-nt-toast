@@ -14,13 +14,22 @@ const props = defineProps({
 const codeInstall = '$ npm install vue-nt-toast'
 
 const codeRegist = `// main.js
-import { createApp } from “vue”;
-import NtToast from “vue-nt-toast”;
-import “vue-nt-toast/toast.css”;
- 
+import { createApp } from 'vue';
+import NtToast from 'vue-nt-toast';
+import 'vue-nt-toast/toast.css';
+import App from './App.vue';
+
 const app = createApp(App)
 // You can set your initial options here
-const defaultOptions = {};
+const defaultOptions = {
+  useTitle: true,
+  useIcon: true,
+  round: false,
+  closeButton: true,
+  displayOnTop: false,
+  snackbar: false,
+  freeze: false
+};
 app.use(NtToast, defaultOptions)
 `
 const codeUsage = `
@@ -32,13 +41,30 @@ const codeUsage = `
 
   const toast = inject('$ntToast')
   <!-- show toast -->
-  toast.show('success', ..., ...)
-  toast.show('info', ..., ...)
-  toast.show('danger', ..., ...)
+  toast.show(
+    <!-- type of toast -->
+    <!-- status(success, danger, info, attention, importance) -->
+    <!-- or colors -->
+    'success',
+    <!-- contents of toast -->
+    <!-- string or { title, description } -->
+    {
+      title: "toast title",
+      description: "toast description ..."
+    },
+    <!-- options of toast -->
+    {
+      useTitle: true,
+      ...
+    }
+  )
+  <!-- All close toast -->
+  toast.clear()
 `
 const installCode = ref(null)
 const registCode = ref(null)
 const usageCode = ref(null)
+
 
 const mode = ref(props.themeMode)
 const highlight = async () => {
@@ -50,7 +76,7 @@ const highlight = async () => {
   
   // console.log(props.themeMode, mode.value)
   const highlighter = await createHighlighter({
-    langs: ['bash', 'js', 'vue'],
+    langs: ['bash', 'js', 'vue-html'],
     themes: ['vitesse-light', 'vitesse-dark', 'rose-pine-dawn', 'github-light', 'github-dark'],
   })
 
@@ -89,6 +115,7 @@ watch(() => props.themeMode, highlight, {immediate:true})
       <div class="xi-plug"></div>
     </template>
     <template #heading>Registration</template>
+    <p>프로젝트의 전역(<code>main.js</code>)에 초기 설정값(<code>defaultOptions</code>)을 지정하고 설치하세요.</p>
     <div class="code-wrapper border">
       <span class="lang">js</span>
       <div v-html="registCode"></div>
@@ -100,7 +127,7 @@ watch(() => props.themeMode, highlight, {immediate:true})
     </template>
     <template #heading>Usage</template>
     <div class="code-wrapper border">
-      <span class="lang">vue</span>
+      <span class="lang">vue-html</span>
       <div v-html="usageCode"></div>
     </div>
   </WelcomeItem>

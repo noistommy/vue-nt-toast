@@ -1,4 +1,5 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -37,6 +38,13 @@ code {
 
 p {
   line-height: 1.6;
+}
+
+pre code {
+  font-family: 'Ubuntu mono', monospace;
+  font-size: 1em;
+  font-weight: 300;
+  line-height: 1.5;
 }
 
 

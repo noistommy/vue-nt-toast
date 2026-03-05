@@ -4,26 +4,27 @@ import { reactive, defineEmits, watch, defineProps } from 'vue';
 
 const themeList = ['default', 'light', 'icon', 'icon-bg', 'line']
 const colorList = ['success', 'danger', 'importance', 'attention', 'info']
-const colorList2 = ['red', 'sunset', 'orange', 'amber', 'yellow', 'citron', 'lime', 'green', 'mint',
-'teal', 'cyan', 'blue', 'indigo', 'purple', 'pink', 'rose']
-const toastColor = {
-  red: '#D93B3B',
-  sunset: '#D44D32',
-  orange: '#D95B2C',
-  amber: '#D3873F',
-  yellow: '#F5B54D',
-  citron: '#CAC747',
-  lime: '#85AB39',
-  green: '#48992F',
-  mint: '#3A874F',
-  teal: '#449698',
-  cyan: '#4D9BCC',
-  blue: '#4E7AF8',
-  indigo: '#5642ED',
-  purple: '#8756F3',
-  pink: '#BF3DA0',
-  rose: '#BB3A62',
-}
+// const colorList1 = ['red', 'sunset', 'orange', 'amber', 'yellow', 'citron', 'lime', 'green', 'mint',
+// 'teal', 'cyan', 'blue', 'indigo', 'purple', 'pink', 'rose']
+const colorList2 = ['red', 'orange', 'yellow', 'lightgreen', 'green', 'lightblue', 'blue', 'deepblue', 'deeppurple', 'purple', 'brown', 'gray']
+// const toastColor = {
+//   red: '#D93B3B',
+//   sunset: '#D44D32',
+//   orange: '#D95B2C',
+//   amber: '#D3873F',
+//   yellow: '#F5B54D',
+//   citron: '#CAC747',
+//   lime: '#85AB39',
+//   green: '#48992F',
+//   mint: '#3A874F',
+//   teal: '#449698',
+//   cyan: '#4D9BCC',
+//   blue: '#4E7AF8',
+//   indigo: '#5642ED',
+//   purple: '#8756F3',
+//   pink: '#BF3DA0',
+//   rose: '#BB3A62',
+// }
 
 const positionList = ['top-left', 'top-center', 'top-right', 'bottom-left', 'bottom-center', 'bottom-right', 'top-full-width', 'bottom-full-width']
 const emit = defineEmits(['setting','update'])
@@ -38,7 +39,7 @@ const toastOption = reactive({
   closeButton: true,
   theme: 'default', // 'light' | 'icon' | 'icon-bg' | 'line'
   position: 'bottom-right', // 'TL'|'TC'|'TR'|'BL'|'BC'|'BR'|'TFW'|'BFW'
-  displayOnTop: true,
+  displayOnTop: false,
   snackbar: false,
   freeze: false,
   timeout: 5000
@@ -228,8 +229,8 @@ const showToast = () => emit('setting', toastOption)
         </template>|
         <button 
         class="ga-button"
-        :style="{backgroundColor: toastColor[modelValue] || none}"
-        @click="setColorType">Select Random Color type</button>
+        :class="modelValue"
+        @click="setColorType">Select Random Color</button>
       </div>
     </div>
     <!-- <template v-for="color in colorList2" :key="color">

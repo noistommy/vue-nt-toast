@@ -14,11 +14,11 @@ const theme = ref('system');
 let toastOption = {
   round: false,
   useTitle: true,
-  useIcon: false,
+  useIcon: true,
   closeButton: true,
   theme: '', // 'light' | 'icon' | 'icon-bg' | 'line'
   position: 'bottom-right', // 'TL'|'TC'|'TR'|'BL'|'BC'|'BR'|'TFW'|'BFW'
-  displayOnTop: true,
+  displayOnTop: false,
   snackbar: false,
   freeze: false,
   timeout: 5000
