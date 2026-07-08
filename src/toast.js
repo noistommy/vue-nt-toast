@@ -6,7 +6,7 @@
 //   importance: 'star'
 // }
 
-import { statusIconSolid } from './toastIcons'
+import { statusIcons } from './toastIcons'
 
 class Toast {
   constructor(type, msg, options) {
@@ -61,7 +61,7 @@ class Toast {
     if (!this.options.useIcon || this.options.theme === 'line') return
     this.icon = document.createElement('div')
     this.icon.classList.add('toast-icon')
-    const iconClass = statusIconSolid[this.type] || statusIconSolid['info']
+    const iconClass = statusIcons[this.type] || statusIcons['info']
     this.icon.innerHTML = iconClass
     // this.icon.innerHTML = `<i class="fa fa-${iconClass}" />`
     // this.icon.innerHTML = `<img src="./icons/success.svg" />`

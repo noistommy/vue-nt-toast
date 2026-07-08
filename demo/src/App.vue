@@ -1,6 +1,8 @@
 <script setup>
 import GetStarted from './components/GetStarted.vue'
 import TheWelcome from './components/TheWelcome.vue'
+import Cabinet from './components/NTCabinet/Cabinet.vue'
+
 import { ref, inject } from 'vue'
 
 // const { proxy } = getCurrentInstance()
@@ -55,7 +57,6 @@ const selectTheme = (mode) => {
   <header>
     <div class="menu-wrapper">
       <nav>
-        <!-- <li><div class="ga-button">A</div></li> -->
         <li>
           <div class="ga-buttons round">
             <div class="ga-button icon" :class="{selected: theme === 'light'}" @click="selectTheme('light')"><i class="xi-sun" /></div>
@@ -87,6 +88,7 @@ const selectTheme = (mode) => {
     <GetStarted :theme-mode="theme" />
     <TheWelcome v-model="type" @setting="setOption" @update="setType"/>
   </main>
+  <Cabinet />
 </template>
 
 <style scoped>
