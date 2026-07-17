@@ -6,7 +6,7 @@
 
 `react-nt-toast`(https://github.com/noistommy/react-nt-toast)의 원본이 되는 Vue 버전입니다.
 
-- 언어/기술 스택: JavaScript, Sass, Vite, Font Awesome 4.7.0, Vue 3 Plugin
+- 언어/기술 스택: JavaScript, Sass, Vite, Vue 3 Plugin
 - 설치: `npm install vue-nt-toast --save`
 - 주요 API: `app.use(NtToast, defaultOptions)` 플러그인 등록, `inject('$ntToast')` → `show(type, contents, options)`
 
