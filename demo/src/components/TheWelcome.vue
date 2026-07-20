@@ -64,46 +64,42 @@ const showToast = () => emit('setting', toastOption)
     <template #heading>Basic setting</template>
     <div class="ga-grid divide-2 divide-xs-1">
       <div class="column">
-        <div class="ga-list list">
-          <div class="item ga-message">
-            use title: 제목 사용 여부
-            <div class="btn-set">
-              <label class="ga-switch slide inside round">
-                <input type="checkbox" v-model="toastOption.useTitle" :checked="toastOption.useTitle">
-                <span class="switch round"></span>
-              </label>
-            </div>
+        <div class="ga-message ga flex between mid">
+          use title: 제목 사용 여부
+          <div class="btn">
+            <label class="ga-switch slide inside round">
+              <input type="checkbox" v-model="toastOption.useTitle" :checked="toastOption.useTitle">
+              <span class="switch round"></span>
+            </label>
           </div>
-          <div class="item ga-message">
-            use icon: 아이콘 사용 여부
-            <div class="btn-set">
-              <label class="ga-switch slide inside round">
-                <input type="checkbox" v-model="toastOption.useIcon" :checked="toastOption.useIcon">
-                <span class="switch"></span>
-              </label>
-            </div>
+        </div>
+        <div class="ga-message ga flex between mid">
+          use icon: 아이콘 사용 여부
+          <div class="btn">
+            <label class="ga-switch slide inside round">
+              <input type="checkbox" v-model="toastOption.useIcon" :checked="toastOption.useIcon">
+              <span class="switch"></span>
+            </label>
           </div>
         </div>
       </div>
       <div class="column">
-        <div class="ga-list list">
-          <div class="item ga-message">
-            use round: 라운드 형태 사용 여부
-            <div class="btn-set">
-              <label class="ga-switch slide inside round">
-                <input type="checkbox" v-model="toastOption.round"  :checked="toastOption.round">
-                <span class="switch round"></span>
-              </label>
-            </div>
+        <div class="ga-message ga flex between mid">
+          use round: 라운드 형태 사용 여부
+          <div class="btn">
+            <label class="ga-switch slide inside round">
+              <input type="checkbox" v-model="toastOption.round"  :checked="toastOption.round">
+              <span class="switch round"></span>
+            </label>
           </div>
-          <div class="item ga-message">
-            use close button: 닫기 버튼 사용 여부
-            <div class="btn-set">
-              <label class="ga-switch slide inside round">
-                <input type="checkbox" v-model="toastOption.closeButton" :checked="toastOption.closeButton">
-                <span class="switch round"></span>
-              </label>
-            </div>
+        </div>
+        <div class="ga-message ga flex between mid">
+          use close button: 닫기 버튼 사용 여부
+          <div class="btn">
+            <label class="ga-switch slide inside round">
+              <input type="checkbox" v-model="toastOption.closeButton" :checked="toastOption.closeButton">
+              <span class="switch round"></span>
+            </label>
           </div>
         </div>
       </div>

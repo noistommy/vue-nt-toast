@@ -11,7 +11,7 @@ const props = defineProps({
   }
 })
 
-const codeInstall = '$ npm install vue-nt-toast'
+const codeInstall = 'npm install vue-nt-toast'
 
 const codeRegist = `// main.js
 import { createApp } from 'vue';
