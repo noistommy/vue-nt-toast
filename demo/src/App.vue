@@ -3,7 +3,10 @@ import GetStarted from './components/GetStarted.vue'
 import TheWelcome from './components/TheWelcome.vue'
 import Cabinet from './components/NTCabinet/Cabinet.vue'
 
-import { ref, inject } from 'vue'
+import { ref, inject, onMounted, onUnmounted } from 'vue'
+
+import {initTooltip, clearTooltip} from '@noistommy/nt-tooltip'
+import "@noistommy/nt-tooltip/nt-tooltip.css";
 
 // const { proxy } = getCurrentInstance()
 // const toast = proxy.$ntToast
@@ -25,6 +28,15 @@ let toastOption = {
   freeze: false,
   timeout: 5000
 }
+
+onMounted(() => {
+  initTooltip()
+})
+
+onUnmounted(() => {
+  clearTooltip()
+})
+
 const setOption = (value) =>{
   toastOption = value
   showToast()
@@ -74,10 +86,22 @@ const selectTheme = (mode) => {
     </div>
     <div class="wrapper">
       <div class="greetings">
+        <div class="toast">
+          <div class="toast-icon">
+            <i class="xi-info" />
+          </div>
+          <div class="toast-contents">
+            <div class="title">Nt Toast</div>
+            <div>JavaScript notification system library for vue.</div>
+          </div>
+          <div class="toast-close">
+            <i class="xi-close" />
+          </div>
+        </div>
         <div class="main-title">
         Nt Toast
         </div>
-        <!-- <div class="sub-title">Nt Toast</div> -->
+        <div class="sub-title">JavaScript notification system library for <span class="ga-tag label green px-4">Vue</span>.</div>
         <button class="ga-button" :class="type" @click="showToast">show toast</button>
         <button class="ga-button secondary" @click="clearToast">clear</button>
       </div>
@@ -91,7 +115,7 @@ const selectTheme = (mode) => {
   <Cabinet />
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
   .menu-wrapper {
     position: absolute;
     top: 0;
@@ -107,6 +131,58 @@ const selectTheme = (mode) => {
   }
 .greetings {
   text-align:center;
+  overflow: hidden;
+  .toast {
+    margin: 5px auto;
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    width: 350px;
+    color: #333;
+    border-radius: 8px;
+    box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.16), 0 0 8px 5px rgba(0, 0, 0, 0.04), 0 0 1px rgba(0, 0, 0, 0.16);
+    background-color: var(--bgc);
+    color: var(--txt);
+    line-height: 1em;
+    vertical-align: baseline;
+    opacity: 1;
+    overflow: hidden;
+    font-size: 0.8em;
+    &-icon {
+      font-size: 1.2em;
+      flex-shrink: 1;
+      padding: 10px;
+      padding-right: 0;
+    }
+    &-contents {
+      text-align: left;
+      flex-grow: 1;
+      padding: 10px;
+      padding-right: 25px;
+      max-width: calc(100% - 50px);
+      overflow-wrap: break-word;
+      .title {
+        font-weight: 800;
+        font-size: 1.2em;
+        margin-bottom: 5px;
+      }
+    }
+    &-close {
+      flex-shrink: 1;
+      cursor: pointer;
+      padding: 10px;
+      line-height: 1em;
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      font-size: 1em;
+      color: inherit;
+    }
+  }
+  &:hover .toast {
+    animation: slide-down 1s ease;
+  }
 }
 header {
   margin-top: 100px;
@@ -127,6 +203,15 @@ main {
 .logo {
   display: block;
   margin: 0 auto 2rem;
+}
+
+@keyframes slide-down {
+  0% {
+    transform: translateY(-100px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 /* 
 @media (min-width: 1024px) {
