@@ -93,6 +93,16 @@
               </div>
             </div>
           </div>
+          <div class="item p-1">
+            <img src="./img/nt-profile.svg" alt="logo" class="logo-img" />
+            <div class="item-title ml-4">NT Tooltip</div>
+            <div class="btn-set">
+              <div class="ga-button icon compact">
+                <i class="xi-link"></i>
+                <a class="link" href="https://noistommy.github.io/nt-tooltip" target="_blank"></a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="column span-4 span-xs-12 pr-10">
