@@ -1,7 +1,7 @@
 <script setup>
 import GetStarted from './components/GetStarted.vue'
 import TheWelcome from './components/TheWelcome.vue'
-import Cabinet from './components/NTCabinet/Cabinet.vue'
+import 'nt-cabinet-component'
 
 import { ref, inject, onMounted, onUnmounted } from 'vue'
 
@@ -112,7 +112,7 @@ const selectTheme = (mode) => {
     <GetStarted :theme-mode="theme" />
     <TheWelcome v-model="type" @setting="setOption" @update="setType"/>
   </main>
-  <Cabinet />
+  <nt-cabinet module="vue-nt-toast" />
 </template>
 
 <style lang="scss" scoped>

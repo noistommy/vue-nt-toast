@@ -54,5 +54,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/noistommy/vue-nt-toast.git"
+  },
+  "dependencies": {
+    "nt-cabinet-component": "github:noistommy/nt-cabinet-component"
   }
 }
